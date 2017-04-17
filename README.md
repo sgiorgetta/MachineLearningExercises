@@ -24,5 +24,27 @@ Finally, we created a model for "PRICE" versus the three predictors "PTRATIO", "
 Since linear regression is valid assuming certain assumptions, we investigated these assumptions. Using the model above for "PRICE" versus the three predictors, we plotted the residuals versus the fitted values.  Since we observed no pattern, we could assume that the residuals are indeed normally distributed.  We also did a quantiles plot to show normal distribution.  Finally, we created a leverage veresus normalized residuals squared plot and aninfluence plot to identify outliers and high leverage data points.  The identified points were deleted, the model recreated, and the two compared. It was noted that data points that are outliers and high leverage points can unduly affect the model and should be eliminated while points that are outliers that do not affect the model do not need to be eliminated. 
 
 
+LOGISTIC REGRESSION MINI-PROJECT
+The second Machine Learning excercise is on Logistic Regression.  It is from the Harvard CS109 course, Lab5 on classification. The dataset is a set of heights and weights for males and females.  
 
-The second Machine Learning excercise is on Logistic Regression.  It is from the Harvard CS109 course, Lab5 on classification.
+First we used Seaborn to create a scatter plot of weight versus height for males and females (the "hue" setting is on gender so the data points are colored differently per gender).
+
+We used sklearn to split the data into training and test sets. We fit a logistic regression model on the training data using the default settings.  Then we used the test data to check the accuracy which was 0.9252 or 93%. 
+
+Using the sklearn KFold package and the given function "cv_score", we did  5-fold cross validation for a basic logistic regression model without regularization.  The accuracy score was 0.917.
+
+We fit a logistic regression model for a given set of C parameters and identified the C parameter that gave the highest accuracy score. We chose the "liblinear" solver and "l1" optimization and set the tolerance to 1e-17.  With the penalty score set at "l2", the differences between the accuracy measures for the different C parameters was not large enough to be able to differentiate a clear "winner".  Therefore the penalty setting was changed to "l1".  At this point, it was also observed that when the cell was re-run with the same data, the results were not consistent.  This is described in the user's manual.  For this reason, the tolerance level was changed until consistent results were achieved. The parameter value that obtained the highest accuracy was C= 0.1.
+
+Using the value 0.1 for C, the logistic regression model was fit to the training data and then accuracy was measured on the test set. The result was accuracy of 0.9228.
+
+Next, we used the sklearn GridSearchCV tool to repeat what we had just done by hand.  The result was best C parameter value of 0.1 and accuracy measure of 0.9228.  For comparison purposes, we also used the function "cv_score" to determine the accuracy score and the result was 0.9240.
+
+We read about the mathematical theory of logistic regression and implemented the given demonstration of performing the five fold cross validation for optimizing parameters.  The results were C=0.01 and train accuracy = 0.92 and test accuracy = 0.92.  A plot of the classifier was implemented showing the decision boundary.
+
+We learned how to obtain the highest probability classification by using maximum likelihood estimation.  We saw how sklearn can compute an array of probabilities for our samples.
+
+Finally, we learned about descriminative versus generative classifiers.  The descriminative classifier finds a soft boundary between classes while a generative classifier finds the distribution of each class.  We saw a plot of the probabilities output by sklearn that shows several decision boundaries with their associated probabilities.
+
+
+
+
