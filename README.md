@@ -2,6 +2,27 @@
 Linear Regression, Logistic Regression, Naive Bayes, and Clustering Exercises for Springboard Data Intensive Course
 
 This respository shall house the Machine Learning exercises for Springboard Data Science Intensive Course.
-The first exercise submitted is the one on Linear Regression.  It is a study of the Boston Housing project and comes from the Harvard CS109 course, lab4.
+
+LINEAR RERESSION MINI-PROJECT
+The first exercise submitted is the one on Linear Regression.  It is a study of the Boston Housing project and comes from the Harvard CS109 course, lab4.  The data set contains housing values in the Boston area along with 13 attributes or variables related to the house such as the location, average number of rooms, crime rate, property tax rate, etc. 
+
+After loading the data into a pandas dataframe, we created scatter plots of the housing price versus many of the variables to look for a correlation between the variable and the housing price.  When the price was plotted versus crime rate, we observed an inverse relationship.  When the price was plotted versus average number of rooms, we observed a positive linear relationship. When price was plotted versus percent lower status of the population, we observed a negative linear relationship.  The plots of housing versus pupil teacher ratio, lots zoned over 25,00- sq ft, and proportion of non-retail businesses showed no correlation.
+
+We created several investigatory plots. First, we used Seaborn's Regplot command to fit a linear regression model to the data for housing price versus average number of rooms. Then we observed the histogram plot of "CRIM", the crime rate per capita. We plotted the data with and without taking the log.  The distribution wtihout taking the log is skewed and not symmetrical.  By taking the log of the data, we were able to create a more symmetrical distribution and we were able to observe the bi-modal nature of the distribution that is not apparent without taking the log.  Then we created several more distribution plots to look for correlations in predictors (the variables). We compared the distriubtions of "RM", average number of rooms, to "PTRATIO", average pupil teacher ratio.  Then we compared "RM" to "LSTAT" and "ZN".  The only two that looked similar were "RM" and "LSTAT". Since visualizing correlations is best done using scatter plots, we went ahead and created some scatter plots of "RM" versus "PTRATIO", "LSTAT", "ZN", and "TAX".  There did appear to be a correlation between "LSTAT" and "RM".
+
+We created linear regression models utilizing two different tools, statsmodels and sklearn. 
+
+First, with statsmodels, we created an ordinary least squares model for price versus all the predictors.  We looked at the summary report.  Then we plotted the predicted prices generated from the model versus the actual prices. We observed a few oddities such as a negative price prediction and a "ceiling" effect at the highest price, and data fanning out at the bottom left side.
+
+Second, we used sklearn to fit a linear model using all of the predictors.  We printed out the intercept and coefficients for the model. We re-created the model specifying that it not fit an intercept term. This would force the model to go through the origin.  For this particular example of housing prices, doing this would not make much sense because there are no houses with a price of zero and there is no real data available near zero and we would expect there to be a positive y intercept.  Next, we plotted the distribution of the predicted prices noting that there are predicted prices below zero and that the distribution is skewed to the right.  Again, we plotted the predicted price versus the actual price and compared this to the plot earlier from the ols model we created with statsmodels.  The model created from sklearn appeared more accurate.  One advantage of using statsmodels was the benefits of more information generated in the summary report. We evaluated the model using Sum of Squares, the coefficient of determination, mean squared error, and F-statistic 
+using the given formulas.
+
+Next, we created a new model for "PRICE" versus the one predictor "PTRATIO" using statsmodel.  We compared the hand generated evaluation metrics to the statsmodels generated values for the coefficient of determination and the F-statistic. We discovered that the F-statistics is just the T-statistic squared for simple linear regression.
+
+Finally, we created a model for "PRICE" versus the three predictors "PTRATIO", "CRIM", and "RM".  Then yet another model adding two more predictors "ZN" and "LSTAT".  We compared the two models looking at the differences in the AIC score and computing the change in F-statistic.  We observed that the model with more predictors was an improvement.
+
+Since linear regression is valid assuming certain assumptions, we investigated these assumptions. Using the model above for "PRICE" versus the three predictors, we plotted the residuals versus the fitted values.  Since we observed no pattern, we could assume that the residuals are indeed normally distributed.  We also did a quantiles plot to show normal distribution.  Finally, we created a leverage veresus normalized residuals squared plot and aninfluence plot to identify outliers and high leverage data points.  The identified points were deleted, the model recreated, and the two compared. It was noted that data points that are outliers and high leverage points can unduly affect the model and should be eliminated while points that are outliers that do not affect the model do not need to be eliminated. 
+
+
 
 The second Machine Learning excercise is on Logistic Regression.  It is from the Harvard CS109 course, Lab5 on classification.
