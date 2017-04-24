@@ -51,7 +51,7 @@ The Dataset used for this exercise is a subset of movie reviews from the Rotten 
 
 We learned the basics of text analysis.  We converted the text into numerical feature vectors contained in a matrix.  The columns represent the features/words and the rows are the numerical representation of a "document". This is called a "Bag of Words" representation. 
 
-We implemented a Naive Bayes Classifier and then used K-fold cross validation to optimize the parameters for the classifier. We plotted the cumulative Distribution of the Document Frequencies to help us choose the min_df for feature extraction.  When building the vocabulary (the features), terms that have a document frequency below min_df (can be proportion of documents of integer input) will be ignored.  We saw that the steep part of the curve occured for min_df < 1.
+We implemented a Naive Bayes Classifier and then used K-fold cross validation to optimize the parameters for the classifier. We plotted the cumulative Distribution of the Document Frequencies to help us choose the min_df for feature extraction.  When building the vocabulary (the features), terms that have a document frequency below min_df (can be proportion of documents of integer input) will be ignored.  We saw that the steep part of the curve occured for min_df between 0 and 0.4. 
 
 We learned how to identify words that have a high probability of signifying a postive review and words that have a low probabiity of signifying a positive review (Feature Selection). 
 
