@@ -47,7 +47,17 @@ Finally, we learned about descriminative versus generative classifiers.  The des
 
 NAIVE BAYES MINI PROJECT
 
-The Dataset used for this exercise is a subset of movie reviews from the Rotten Tomatoes database. We learned the basics of text analysis.   We implemented a Naive Bayes Classifier and then used K-fold cross validation to optimize the parameters for the classifier.  We learned how to identify words that have a high probability of signifying a postive review and words that have a low probabiity of signifying a positive review (Feature Selection). We saw an example of mis-classification illustrating some challenges of text interpretation and sentiment classification.  Finally, we tested several other classifiers such as Random Forest and LinearSVC and compared the results. We also tried using n-grams instead of words, td-idf weighting, and setting max_df.  The optimized Naive Bayes classifier produced the best results for a model that generalized well to new data.  The LinearSVC model had a little higher accuracy but given the difference in the training accuracy to the test accuracy, we saw that the model did not generalize well to new data.
+The Dataset used for this exercise is a subset of movie reviews from the Rotten Tomatoes database. 
+
+We learned the basics of text analysis.  We converted the text into numerical feature vectors contained in a matrix.  The columns represent the features/words and the rows are the numerical representation of a "document". This is called a "Bag of Words" representation. 
+
+We implemented a Naive Bayes Classifier and then used K-fold cross validation to optimize the parameters for the classifier. We plotted the cumulative Distribution of the Document Frequencies to help us choose the min_df for feature extraction.  When building the vocabulary (the features), terms that have a document frequency below min_df (can be proportion of documents of integer input) will be ignored.  We saw that the steep part of the curve occured for min_df < 1.
+
+We learned how to identify words that have a high probability of signifying a postive review and words that have a low probabiity of signifying a positive review (Feature Selection). 
+
+We saw an example of mis-classification illustrating some challenges of text interpretation and sentiment classification.  
+
+Finally, we tested several other classifiers such as Random Forest and LinearSVC and compared the results. We also tried using n-grams instead of words, td-idf weighting, and setting max_df.  The optimized Naive Bayes classifier produced the best results for a model that generalized well to new data.  The LinearSVC model had a little higher accuracy but given the difference in the training accuracy to the test accuracy, we saw that the model did not generalize well to new data.
 
 
 
