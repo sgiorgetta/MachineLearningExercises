@@ -45,6 +45,9 @@ We learned how to obtain the highest probability classification by using maximum
 
 Finally, we learned about descriminative versus generative classifiers.  The descriminative classifier finds a soft boundary between classes while a generative classifier finds the distribution of each class.  We saw a plot of the probabilities output by sklearn that shows several decision boundaries with their associated probabilities.
 
+NAIVE BAYES MINI PROJECT
+
+The Dataset used for this exercise is a subset of movie reviews from the Rotten Tomatoes database. We learned the basics of text analysis.   We implemented a Naive Bayes Classifier and then used K-fold cross validation to optimize the parameters for the classifier.  We learned how to identify words that have a high probability of signifying a postive review and words that have a low probabiity of signifying a positive review (Feature Selection). We saw an example of mis-classification illustrating some challenges of text interpretation and sentiment classification.  Finally, we tested several other classifiers such as Random Forest and LinearSVC and compared the results.  The optimized Naive Bayes classifier produced the best results for a model that generalized well to new data.  The LinearSVC model had a little higher accuracy but given the difference in the training accuracy to the test accuracy, we saw that the model did not generalize well to new data.
 
 
 
