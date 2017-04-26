@@ -1,7 +1,7 @@
 # MachineLearningExercises
 Linear Regression, Logistic Regression, Naive Bayes, and Clustering Exercises for Springboard Data Intensive Course
 
-This respository shall house the Machine Learning exercises for Springboard Data Science Intensive Course.
+This respository shall house the Machine Learning exercises for Springboard Data Science Intensive Course.  A detailed description of each notebook follows:
 
 LINEAR RERESSION MINI-PROJECT
 The first exercise submitted is the one on Linear Regression.  It is a study of the Boston Housing project and comes from the Harvard CS109 course, lab4.  The data set contains housing values in the Boston area along with 13 attributes or variables related to the house such as the location, average number of rooms, crime rate, property tax rate, etc. 
@@ -59,5 +59,17 @@ We saw an example of mis-classification illustrating some challenges of text int
 
 Finally, we tested several other classifiers such as Random Forest and LinearSVC and compared the results. We also tried using n-grams instead of words, td-idf weighting, and setting max_df.  The optimized Naive Bayes classifier produced the best results for a model that generalized well to new data.  The LinearSVC model had a little higher accuracy but given the difference in the training accuracy to the test accuracy, we saw that the model did not generalize well to new data.
 
+CLUSTERING
 
+The Dataset used is transaction details for wine purchases made for different marketing promotions (offers).
+
+We used Clustering as a means of segmenting the customer base.  First, we used Kmeans clustering.  In order to identify what value of K would be best, we ran the algorithm for various values of K and then plotted the Sums of Squares Error for each value of K. We plotted the results and looked at the graph to try to identify the "elbow", the point where the slope begins to descend more slowly.  When observing the plot, there were several K values where the slope changed.  Since it is difficult to choose the best "elbow" point, we used the silhoutte method for choosing K.  We made silhouette plots for values of K between 2 and 10.  We then plotted the silhoutte scores vs. K and saw that K=8 produced the best silhouette score.
+
+We did a dimension reduction using PCA so we could get a visual representation in 2 dimensions of the clusters.  We did this for K=8 and K=3.  For K=3, visually we could see the division of clusters.  For K=8 there was quite a bit of overlap.
+
+For the Kmeans K=3 results, we merged the labels that were produced with the original transaction and offers data to interpret the results.  We grouped the data by cluster label and varietal and made a bar graph.  We then grouped by cluster label and discount offered and graphed that as well.  Of the three groups, there was one that was strictly Pinot Noir purchasers, one that purchased the most Pinot Grigios and Espumantes (maybe indicating a preference for "whites"), and the third group purchased the widest variety of wines.
+
+We created a new PCA model without specifying the number of components. Then we plotted the explained_variance result to determine what the optimal number of dimensions would be and found that to be 3 dimensions.
+
+Finally, we investigated four other clustering algorithms: Affinity Propagation, Spectral Clustering, Agglomerative Clustering, and DBSCAN.  We produced our best result with Agglomerative Clustering (K=8), although all of the silhouette scores indicated "weak" to no substantial structure.
 
